@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Plugin>
+    <Information>
+        <Name>sh-unit-frames</Name>
+        <Author>Arthur Shevchuk</Author>
+        <Version>0.1</Version>
+        <Description>Modern unit frames.</Description>
+
+    </Information>
+    <Package>shevchuk.XUnitFrames.Main</Package>
+</Plugin>
