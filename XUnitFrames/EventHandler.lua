@@ -1,5 +1,5 @@
 import "shevchuk.XUnitFrames.WindowConstructor";
-
+import "shevchuk.XUnitFrames.PartyWindow";
 
 
 function UpdateMorale()
@@ -109,9 +109,17 @@ end
 
 function UpdatePartyInfo()
 if (Turbine.Gameplay.LocalPlayer.GetInstance():GetParty()) ~= nil then
-    
-    Turbine.Gameplay.LocalPlayer.GetInstance():GetParty():GetMemberCount()
-    
+    if #PartyPlayerFrame == 0 then
+    createPartyFrame()
+    else
+    PPlayersNumber = Turbine.Gameplay.LocalPlayer.GetInstance():GetParty():GetMemberCount()
+    PPlayersFrames = #PartyPlayerFrame
+
+
+    end
+
+
+
 end
 
 

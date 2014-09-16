@@ -1,7 +1,7 @@
 --[[
 This class contains 3 methods for generating different windows for vitals, party and target frames.
 
-Данный класс включает в себя 3 метода для генерации разных окон для фреймов игрока, группы и цели.
+пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ.
 ]]
 
 
@@ -17,7 +17,7 @@ lPlayer = Turbine.Gameplay.LocalPlayer.GetInstance()
 --[[
 Method, that generates a Turbine.UI.Window for vitals frame.
 
-Метод генерации окна Turbine.UI.Window для фрейма игрока.
+пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Turbine.UI.Window пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 ]]
 
 function VitalsWindow:Constructor( )
@@ -40,7 +40,7 @@ function VitalsWindow:Constructor( )
 --[[
 A Turbine.UI.Control which draws player class image.
 
-Turbine.UI.Control, который отрисовывает иконку класса персонажа.
+Turbine.UI.Control, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 ]]
 
    
@@ -58,7 +58,7 @@ Turbine.UI.Control, который отрисовывает иконку класса персонажа.
 --[[
 A Turbine.UI.Control which draws background for hp and mana panels.
 
-Turbine.UI.Control, который отрисовывает фон для панелей хп и маны.
+Turbine.UI.Control, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ.
 ]]
         
         PowerManaFrame = Turbine.UI.Control()
@@ -71,7 +71,7 @@ Turbine.UI.Control, который отрисовывает фон для панелей хп и маны.
 --[[
 Two  Turbine.UI.Control's which draws health points and mana points panel. I used a 1x5px texture gradiend for this.
 
-Два Turbine.UI.Control, которые отрисовывает панель боевого духа и энергии. Я использовал градиентную текстуры 1x5px.
+пїЅпїЅпїЅ Turbine.UI.Control, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 1x5px.
 ]]
         
         hp = Turbine.UI.Control()
@@ -146,12 +146,12 @@ end
 
 PartyPlayerWindow = class (Turbine.UI.Window)
 
-function PartyPlayerWindow:Constructor(member)
+function PartyPlayerWindow:Constructor(id)
         Turbine.UI.Window.Constructor( self );
 	self:SetSize(196, 38)
 	self:SetPosition( 200, 500 );
         --self:SetBackColor( Turbine.UI.Color( math.random(), math.random(), math.random() ) );
-        self.DragBar = Deusdictum.UI.DragBar( self, "Player's Frame" );
+        self.DragBar = Deusdictum.UI.DragBar( self, "Player's Frame #".. id );
 	self.DragBar:SetBarOnTop( true );
 	self:SetVisible( true );
         partyEntity = Turbine.UI.Lotro.EntityControl();
@@ -159,7 +159,7 @@ function PartyPlayerWindow:Constructor(member)
         partyEntity:SetPosition(0,0)
         partyEntity:SetSize(self:GetSize())
         partyEntity:SetMouseVisible(true)
-        partyEntity:SetEntity(member);
+        --partyEntity:SetEntity(member);
         
         PPlayerImage = Turbine.UI.Control()
         PPlayerImage:SetParent(self)
@@ -195,14 +195,14 @@ function PartyPlayerWindow:Constructor(member)
         pPlayerName = Turbine.UI.Label();
         pPlayerName:SetParent(PPowerManaFrame);
         pPlayerName:SetPosition(5, 4)
-        pPlayerName:SetText(member:GetName())
+        --pPlayerName:SetText(member:GetName())
         pPlayerName:SetMouseVisible(false)
         
         pMoraleLabel = Turbine.UI.Label()
         pMoraleLabel:SetParent(PPowerManaFrame)
         pMoraleLabel:SetPosition(0, 4)
         pMoraleLabel:SetWidth(PPowerManaFrame:GetWidth())
-        pMoraleLabel:SetText(math.floor(member:GetMorale()+0.5).."/"..math.floor(member:GetMaxMorale()+0.5))       
+        --pMoraleLabel:SetText(math.floor(member:GetMorale()+0.5).."/"..math.floor(member:GetMaxMorale()+0.5))
         pMoraleLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
         pMoraleLabel:SetMouseVisible(false)
         
@@ -210,7 +210,7 @@ function PartyPlayerWindow:Constructor(member)
         pMoralePercentageLabel:SetParent(PPowerManaFrame)
         pMoralePercentageLabel:SetPosition(-7, 4)
         pMoralePercentageLabel:SetWidth(PPowerManaFrame:GetWidth())   
-        pMoralePercentageLabel:SetText(member:GetMorale()*100/member:GetMaxMorale().."%")
+        --pMoralePercentageLabel:SetText(member:GetMorale()*100/member:GetMaxMorale().."%")
         pMoralePercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
         pMoralePercentageLabel:SetMouseVisible(false)
         
@@ -219,7 +219,7 @@ function PartyPlayerWindow:Constructor(member)
         pPowerLabel:SetParent(PPowerManaFrame)
         pPowerLabel:SetPosition(0, 22)
         pPowerLabel:SetWidth(PPowerManaFrame:GetWidth())
-        pPowerLabel:SetText(math.floor(member:GetPower()+0.5).."/"..math.floor(member:GetMaxPower()+0.5))      
+        --pPowerLabel:SetText(math.floor(member:GetPower()+0.5).."/"..math.floor(member:GetMaxPower()+0.5))
         pPowerLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
         pPowerLabel:SetMouseVisible(false)
         
@@ -227,9 +227,13 @@ function PartyPlayerWindow:Constructor(member)
         pPowerPercentageLabel:SetParent(PPowerManaFrame)
         pPowerPercentageLabel:SetPosition(-7, 22)
         pPowerPercentageLabel:SetWidth(PPowerManaFrame:GetWidth())   
-        pPowerPercentageLabel:SetText(member:GetPower()*100/member:GetMaxPower().."%")
+       -- pPowerPercentageLabel:SetText(member:GetPower()*100/member:GetMaxPower().."%")
         pPowerPercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
         pPowerPercentageLabel:SetMouseVisible(false)
+
+    function setMember(member)
+        partyEntity:SetEntity(member);
+    end
 
 end
 
