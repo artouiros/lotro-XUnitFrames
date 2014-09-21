@@ -20,7 +20,7 @@ Initializing EventHandler for party MemberAdded/Removed.
 I'm calling a function in PartyWindow class to do this. This looks a bit strange,
 but I want to keep Main class clear
 ]]
---createPartyEventHandler()
+createPartyEventHandler()
 
 --getPlayerFrame(1):SetVisible(false)
 

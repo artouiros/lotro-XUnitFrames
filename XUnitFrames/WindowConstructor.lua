@@ -13,6 +13,7 @@ import "Deusdictum.UI";
 import "shevchuk.XUnitFrames.ClassImage";
 VitalsWindow = class( Turbine.UI.Window );
 hpDefaultSize = 222
+phpDefaultSize = 155.7
 lPlayer = Turbine.Gameplay.LocalPlayer.GetInstance() 
 --[[
 Method, that generates a Turbine.UI.Window for vitals frame.
@@ -153,87 +154,85 @@ function PartyPlayerWindow:Constructor(id)
         --self:SetBackColor( Turbine.UI.Color( math.random(), math.random(), math.random() ) );
         self.DragBar = Deusdictum.UI.DragBar( self, "Player's Frame #".. id );
 	self.DragBar:SetBarOnTop( true );
-	self:SetVisible( true );
-        partyEntity = Turbine.UI.Lotro.EntityControl();
-	partyEntity:SetParent(self);
-        partyEntity:SetPosition(0,0)
-        partyEntity:SetSize(self:GetSize())
-        partyEntity:SetMouseVisible(true)
+	self:SetVisible( false);
+        self.partyEntity = Turbine.UI.Lotro.EntityControl();
+        self.partyEntity:SetParent(self);
+        self.partyEntity:SetPosition(0,0)
+        self.partyEntity:SetSize(self:GetSize())
+        self.partyEntity:SetMouseVisible(true)
         --partyEntity:SetEntity(member);
-        
-        PPlayerImage = Turbine.UI.Control()
-        PPlayerImage:SetParent(self)
-        PPlayerImage:SetSize(35, 35)
-        PPlayerImage:SetPosition(1, 1)
-        --PlayerImage:SetBackground(classImage:case(lPlayer:GetClass()))
-        PPlayerImage:SetBackground("shevchuk/XUnitFrames/Resources/captain.tga")
-        PPlayerImage:SetBlendMode(4)
-        PPlayerImage:SetStretchMode(2)
-        PPlayerImage:SetMouseVisible(false)
-        
-        PPowerManaFrame = Turbine.UI.Control()
-        PPowerManaFrame:SetParent(self)
-        PPowerManaFrame:SetSize(160, 37)
-        PPowerManaFrame:SetPosition(36, 1)
-        PPowerManaFrame:SetBackground("shevchuk/XUnitFrames/Resources/bordersmall.tga")
-        PPowerManaFrame:SetMouseVisible(false)
-        
-        php = Turbine.UI.Control()
-        php:SetParent(PPowerManaFrame)
-        php:SetPosition(2.6, 3)
-        php:SetSize(155.7, 13)
-        php:SetBackground("shevchuk/XUnitFrames/Resources/hptexture.tga")
-        php:SetMouseVisible(false)
-        
-        pmana = Turbine.UI.Control()
-        pmana:SetParent(PPowerManaFrame)
-        pmana:SetPosition(2.6, 21)
-        pmana:SetSize(155.7, 13)
-        pmana:SetBackground("shevchuk/XUnitFrames/Resources/manatexture.tga")
-        pmana:SetMouseVisible(false)
-        
-        pPlayerName = Turbine.UI.Label();
-        pPlayerName:SetParent(PPowerManaFrame);
-        pPlayerName:SetPosition(5, 4)
-        --pPlayerName:SetText(member:GetName())
-        pPlayerName:SetMouseVisible(false)
-        
-        pMoraleLabel = Turbine.UI.Label()
-        pMoraleLabel:SetParent(PPowerManaFrame)
-        pMoraleLabel:SetPosition(0, 4)
-        pMoraleLabel:SetWidth(PPowerManaFrame:GetWidth())
-        --pMoraleLabel:SetText(math.floor(member:GetMorale()+0.5).."/"..math.floor(member:GetMaxMorale()+0.5))
-        pMoraleLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
-        pMoraleLabel:SetMouseVisible(false)
-        
-        pMoralePercentageLabel = Turbine.UI.Label()
-        pMoralePercentageLabel:SetParent(PPowerManaFrame)
-        pMoralePercentageLabel:SetPosition(-7, 4)
-        pMoralePercentageLabel:SetWidth(PPowerManaFrame:GetWidth())   
-        --pMoralePercentageLabel:SetText(member:GetMorale()*100/member:GetMaxMorale().."%")
-        pMoralePercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
-        pMoralePercentageLabel:SetMouseVisible(false)
-        
-        
-        pPowerLabel = Turbine.UI.Label()
-        pPowerLabel:SetParent(PPowerManaFrame)
-        pPowerLabel:SetPosition(0, 22)
-        pPowerLabel:SetWidth(PPowerManaFrame:GetWidth())
-        --pPowerLabel:SetText(math.floor(member:GetPower()+0.5).."/"..math.floor(member:GetMaxPower()+0.5))
-        pPowerLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
-        pPowerLabel:SetMouseVisible(false)
-        
-        pPowerPercentageLabel = Turbine.UI.Label()
-        pPowerPercentageLabel:SetParent(PPowerManaFrame)
-        pPowerPercentageLabel:SetPosition(-7, 22)
-        pPowerPercentageLabel:SetWidth(PPowerManaFrame:GetWidth())   
-       -- pPowerPercentageLabel:SetText(member:GetPower()*100/member:GetMaxPower().."%")
-        pPowerPercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
-        pPowerPercentageLabel:SetMouseVisible(false)
 
-    function setMember(member)
-        partyEntity:SetEntity(member);
-    end
+        self.PPlayerImage = Turbine.UI.Control()
+        self.PPlayerImage:SetParent(self)
+        self.PPlayerImage:SetSize(35, 35)
+        self.PPlayerImage:SetPosition(1, 1)
+        --PlayerImage:SetBackground(classImage:case(lPlayer:GetClass()))
+        self.PPlayerImage:SetBackground("shevchuk/XUnitFrames/Resources/captain.tga")
+        self.PPlayerImage:SetBlendMode(4)
+        self.PPlayerImage:SetStretchMode(2)
+        self.PPlayerImage:SetMouseVisible(false)
+
+        self.PPowerManaFrame = Turbine.UI.Control()
+        self.PPowerManaFrame:SetParent(self)
+        self.PPowerManaFrame:SetSize(160, 37)
+        self.PPowerManaFrame:SetPosition(36, 1)
+        self.PPowerManaFrame:SetBackground("shevchuk/XUnitFrames/Resources/bordersmall.tga")
+        self.PPowerManaFrame:SetMouseVisible(false)
+
+        self.php = Turbine.UI.Control()
+        self.php:SetParent(self.PPowerManaFrame)
+        self.php:SetPosition(2.6, 3)
+        self.php:SetSize(155.7, 13)
+        self.php:SetBackground("shevchuk/XUnitFrames/Resources/hptexture.tga")
+        self.php:SetMouseVisible(false)
+
+        self.pmana = Turbine.UI.Control()
+        self.pmana:SetParent(self.PPowerManaFrame)
+        self.pmana:SetPosition(2.6, 21)
+        self.pmana:SetSize(155.7, 13)
+        self.pmana:SetBackground("shevchuk/XUnitFrames/Resources/manatexture.tga")
+        self.pmana:SetMouseVisible(false)
+
+        self.pPlayerName = Turbine.UI.Label();
+        self.pPlayerName:SetParent(self.PPowerManaFrame);
+        self.pPlayerName:SetPosition(5, 4)
+        --pPlayerName:SetText(member:GetName())
+        self.pPlayerName:SetMouseVisible(false)
+
+        self.pMoraleLabel = Turbine.UI.Label()
+        self.pMoraleLabel:SetParent(self.PPowerManaFrame)
+        self.pMoraleLabel:SetPosition(0, 4)
+        self.pMoraleLabel:SetWidth(self.PPowerManaFrame:GetWidth())
+        --pMoraleLabel:SetText(math.floor(member:GetMorale()+0.5).."/"..math.floor(member:GetMaxMorale()+0.5))
+        self.pMoraleLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
+        self.pMoraleLabel:SetMouseVisible(false)
+
+        self.pMoralePercentageLabel = Turbine.UI.Label()
+        self.pMoralePercentageLabel:SetParent(self.PPowerManaFrame)
+        self.pMoralePercentageLabel:SetPosition(-7, 4)
+        self.pMoralePercentageLabel:SetWidth(self.PPowerManaFrame:GetWidth())
+        --pMoralePercentageLabel:SetText(member:GetMorale()*100/member:GetMaxMorale().."%")
+        self.pMoralePercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
+        self.pMoralePercentageLabel:SetMouseVisible(false)
+
+
+        self.pPowerLabel = Turbine.UI.Label()
+        self.pPowerLabel:SetParent(self.PPowerManaFrame)
+        self.pPowerLabel:SetPosition(0, 22)
+        self.pPowerLabel:SetWidth(self.PPowerManaFrame:GetWidth())
+        --pPowerLabel:SetText(math.floor(member:GetPower()+0.5).."/"..math.floor(member:GetMaxPower()+0.5))
+        self.pPowerLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopCenter);
+        self.pPowerLabel:SetMouseVisible(false)
+
+        self.pPowerPercentageLabel = Turbine.UI.Label()
+        self.pPowerPercentageLabel:SetParent(self.PPowerManaFrame)
+        self.pPowerPercentageLabel:SetPosition(-7, 22)
+        self.pPowerPercentageLabel:SetWidth(self.PPowerManaFrame:GetWidth())
+       -- pPowerPercentageLabel:SetText(member:GetPower()*100/member:GetMaxPower().."%")
+        self.pPowerPercentageLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight);
+        self.pPowerPercentageLabel:SetMouseVisible(false)
+
+
 
 end
 

@@ -1,5 +1,29 @@
 import "shevchuk.XUnitFrames.WindowConstructor";
 import "shevchuk.XUnitFrames.PartyWindow";
+import "Turbine.UI";
+import "Turbine.UI.Lotro";
+import "Turbine.Gameplay";
+
+
+function UpdatePartyMemberMorale(frame, player)
+    local morale        = player:GetMorale();
+    local maxMorale     = player:GetMaxMorale();
+    frame.pMoraleLabel:SetText(math.floor(morale+0.5).."/"..math.floor(maxMorale+0.5))
+    local moralePercentage = (math.floor(morale+0.5))*100/(math.floor(maxMorale+0.5))
+   frame.php:SetWidth((phpDefaultSize/100)*moralePercentage)
+    frame.pMoralePercentageLabel:SetText(math.floor(morale*100/maxMorale+0.5).."%")
+end
+
+function UpdatePartyMemberPower(frame, player)
+    local power        = player:GetPower();
+    local maxPower     = player:GetMaxPower();
+    frame.pPowerLabel:SetText(math.floor(power+0.5).."/"..math.floor(maxPower+0.5))
+    local powerPercentage = (math.floor(power+0.5))*100/(math.floor(maxPower+0.5))
+    frame.pmana:SetWidth((phpDefaultSize/100)*powerPercentage)
+    frame.pPowerPercentageLabel:SetText(math.floor(power*100/maxPower+0.5).."%")
+end
+
+
 
 
 function UpdateMorale()
