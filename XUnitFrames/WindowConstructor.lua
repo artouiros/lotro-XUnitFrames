@@ -23,7 +23,7 @@ Method, that generates a Turbine.UI.Window for vitals frame.
 
 function VitalsWindow:Constructor( )
 	Turbine.UI.Window.Constructor( self );
-	self:SetSize(278, 52)
+	self:SetSize(272, 52)
 	self:SetPosition( 200, 200 ); 
         self.DragBar = Deusdictum.UI.DragBar( self, "Player's Frame" );
 	self.DragBar:SetBarOnTop( true );
@@ -48,10 +48,11 @@ Turbine.UI.Control, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï
 
         PlayerImage = Turbine.UI.Control()
         PlayerImage:SetParent(self)
-        PlayerImage:SetSize(50, 50)
-        PlayerImage:SetPosition(1, 1)
-        --PlayerImage:SetBackground(classImage:case(lPlayer:GetClass()))
-        PlayerImage:SetBackground("shevchuk/XUnitFrames/Resources/captain.tga")
+        PlayerImage:SetSize(40, 40)
+        PlayerImage:SetPosition(1, 6)
+        PlayerImage:SetBackground(getClassImage(lPlayer))
+    Turbine.Shell.WriteLine(getClassImage(lPlayer).."  "..lPlayer:GetClass())
+       -- PlayerImage:SetBackground("shevchuk/XUnitFrames/Resources/captain.tga")
         PlayerImage:SetBlendMode(4)
         PlayerImage:SetStretchMode(2)
         PlayerImage:SetMouseVisible(false)
@@ -65,7 +66,7 @@ Turbine.UI.Control, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï
         PowerManaFrame = Turbine.UI.Control()
         PowerManaFrame:SetParent(self)
         PowerManaFrame:SetSize(228, 52)
-        PowerManaFrame:SetPosition(51, 1)
+        PowerManaFrame:SetPosition(45, 1)
         PowerManaFrame:SetBackground("shevchuk/XUnitFrames/Resources/border.tga")
         PowerManaFrame:SetMouseVisible(false)
 
