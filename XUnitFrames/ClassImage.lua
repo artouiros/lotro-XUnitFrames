@@ -25,7 +25,7 @@ end
 
 classImage = switch {
     [194] = function(x) image = "shevchuk/XUnitFrames/Resources/warden.tga" end,
-    [193] = function(x) image = "shevchuk/XUnitFrames/Resources/runkeeper.tga" end,
+    [193] = function(x) image = "shevchuk/XUnitFrames/Resources/runekeeper.tga" end,
     [31] = function(x) image = "shevchuk/XUnitFrames/Resources/ministrel.tga" end,
     [185] = function(x) image = "shevchuk/XUnitFrames/Resources/loremaster.tga" end,
     [162] = function(x) image = "shevchuk/XUnitFrames/Resources/hunter.tga" end,

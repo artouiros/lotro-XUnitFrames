@@ -3,6 +3,7 @@ import "shevchuk.XUnitFrames.PartyWindow";
 import "Turbine.UI";
 import "Turbine.UI.Lotro";
 import "Turbine.Gameplay";
+import "shevchuk.XUnitFrames.ClassImage"
 
 
 function UpdatePartyMemberMorale(frame, player)
@@ -95,7 +96,7 @@ function UpdateTarget()
         
         if (lPlayer:GetTarget()) ~= nil then
          
-            TargetImage:SetBackground("shevchuk/XUnitFrames/Resources/captain.tga")
+            TargetImage:SetBackground(getClassImage(lPlayer:GetTarget()))
             TargetImage:SetBlendMode(4)
             TargetImage:SetStretchMode(2)
             TargetImage:SetMouseVisible(false)
