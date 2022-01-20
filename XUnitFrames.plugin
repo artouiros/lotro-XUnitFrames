@@ -2,10 +2,10 @@
 <Plugin>
     <Information>
         <Name>sh-unit-frames</Name>
-        <Author>Arthur Shevchuk</Author>
+        <Author>artouiros/Author>
         <Version>0.1</Version>
         <Description>Modern unit frames.</Description>
 
     </Information>
-    <Package>shevchuk.XUnitFrames.Main</Package>
+    <Package>artouiros.XUnitFrames.Main</Package>
 </Plugin>
